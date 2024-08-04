@@ -1,8 +1,10 @@
 package comp;
 
 
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 
+@ApplicationScoped
 public class Computer implements IComputer {
 
     private String name;
