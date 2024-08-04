@@ -1,8 +1,10 @@
 package comp;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.inject.Alternative;
 
 @ApplicationScoped
+@Alternative
 public class Monitor implements IMonitor{
     private String name;
 

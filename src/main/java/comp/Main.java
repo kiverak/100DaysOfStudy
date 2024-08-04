@@ -15,11 +15,11 @@ public class Main {
 //        WeldContainer container = weld.beanClasses(Monitor.class, Computer.class).initialize(); // НЕ будет пытаться найти файл beans.xml, а создаст контейнер на основе переданных классов
 
         // получаем из контейнера объекты - для проверки
-        IMonitor monitor = container.select(Monitor.class).get();
-        IComputer comp = container.select(Computer.class).get();
+        IMonitor monitor = container.select(IMonitor.class).get();
+        IComputer comp = container.select(IComputer.class).get();
 
         // проверяем, что они не пустые
-        System.out.println("monitor = " + monitor);
+        System.out.println("monitor = " + monitor.getName());
         System.out.println("comp = " + comp.getMonitor()); // монитор внедряется с помощью DI
 
         container.shutdown(); // завершаем контейнер
