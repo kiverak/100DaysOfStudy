@@ -11,9 +11,9 @@ repositories {
 }
 
 
-task copyResources(type: Copy) {
+tasks.register('copyResources', Copy) {
     from "${projectDir}/src/main/resources/META-INF"
-    into "${buildDir}/classes/java/main/META-INF"
+    into "${rootProject.layout.buildDirectory}/classes/java/main/META-INF"
 }
 
 processResources.dependsOn copyResources
