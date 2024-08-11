@@ -3,7 +3,6 @@ package comp;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
-import jakarta.inject.Named;
 
 @ApplicationScoped
 public class ComputerNew implements IComputer {
@@ -11,8 +10,8 @@ public class ComputerNew implements IComputer {
     private String name;
     private IMouse mouse;
 
-    @Inject
-    @Named("monitorNew")
+//    @Inject
+//    @Named("monitorNew")
     private IMonitor monitor; // в эту переменную будет подставлен конкретный объект (это может быть неизвестно самой переменной)
 
     public ComputerNew(String name) {
@@ -20,6 +19,12 @@ public class ComputerNew implements IComputer {
     }
 
     public ComputerNew() {
+    }
+
+    @Inject
+    public ComputerNew(IMouse mouse, IMonitor monitor) {
+        this.mouse = mouse;
+        this.monitor = monitor;
     }
 
     @Override

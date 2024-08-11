@@ -11,8 +11,6 @@ public class Computer implements IComputer {
     private String name;
     private IMouse mouse;
 
-//    @Inject
-//    @Named("monitorNew")
     protected IMonitor monitor;
 
     public Computer() {
@@ -22,11 +20,11 @@ public class Computer implements IComputer {
         this.name = name;
     }
 
-//    @Inject
-//    public Computer(IMouse mouse, @Named("monitor") IMonitor monitor) {
-//        this.mouse = mouse;
-//        this.monitor = monitor;
-//    }
+    @Inject
+    public Computer(IMouse mouse, IMonitor monitor) {
+        this.mouse = mouse;
+        this.monitor = monitor;
+    }
 
     @Override
     public String getName() {
@@ -38,12 +36,10 @@ public class Computer implements IComputer {
         return monitor;
     }
 
-    @Override
     public IMouse getMouse() {
         return mouse;
     }
 
-    @Inject
     public void setMouse(IMouse mouse) {
         this.mouse = mouse;
     }
@@ -52,8 +48,7 @@ public class Computer implements IComputer {
         this.name = name;
     }
 
-    @Inject
-    public void setMonitor(@Named("monitor")IMonitor monitor) {
+    public void setMonitor(@Named("monitor") IMonitor monitor) {
         this.monitor = monitor;
     }
 
