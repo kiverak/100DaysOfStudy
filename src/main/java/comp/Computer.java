@@ -9,16 +9,23 @@ import jakarta.inject.Named;
 public class Computer implements IComputer {
 
     private String name;
+    private IMouse mouse;
 
     @Inject
-    @Named("monitor")
+    @Named("monitorNew")
     protected IMonitor monitor;
+
+    public Computer() {
+    }
 
     public Computer(String name) {
         this.name = name;
     }
 
-    public Computer() {
+    @Inject
+    public Computer(IMouse mouse, @Named("monitor") IMonitor monitor) {
+        this.mouse = mouse;
+        this.monitor = monitor;
     }
 
     @Override
@@ -29,6 +36,15 @@ public class Computer implements IComputer {
     @Override
     public IMonitor getMonitor() {
         return monitor;
+    }
+
+    @Override
+    public IMouse getMouse() {
+        return mouse;
+    }
+
+    public void setMouse(IMouse mouse) {
+        this.mouse = mouse;
     }
 
     public void setName(String name) {
