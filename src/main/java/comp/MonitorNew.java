@@ -1,8 +1,10 @@
 package comp;
 
 import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.inject.Named;
 
 @ApplicationScoped
+@Named
 public class MonitorNew implements IMonitor {
     private String name = "monitor_new";
 
