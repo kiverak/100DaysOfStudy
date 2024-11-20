@@ -1,4 +1,4 @@
-rootProject.name = '100Days'
+rootProject.name = '100DaysOfStudy'
 include 'api-gateway'
 include 'eureka-client'
 include 'eureka-client-2'
