@@ -1,0 +1,39 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+#logging:
+#  pattern:
+#    console: "%C{1.} [%-5level] %d{HH:mm:ss} = %msg%n"
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: eclient
+          uri: lb://eclient
+          predicates:
+            - Path=/main/**
+        - id: eclient2
+          uri: lb://eclient2
+          predicates:
+            - Path=/new/**
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+            allowedHeaders: "*"
