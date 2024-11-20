@@ -1,7 +1,6 @@
 rootProject.name = '100Days'
-
-include 'eureka-client'
-include 'eureka-client2'
-include 'eureka-server'
 include 'api-gateway'
+include 'eureka-client'
+include 'eureka-client-2'
+include 'eureka-server'
 
