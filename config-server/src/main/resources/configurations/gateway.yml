@@ -37,3 +37,9 @@ spring:
               - PUT
               - DELETE
             allowedHeaders: "*"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
